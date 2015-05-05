@@ -1,3 +1,37 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#modal-background {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 3;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.70);
+}
+#modal-window {
+  display: block;
+  width: 300px;
+  height: 120px;
+  margin-top: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0px 0px 19px;
+  background-color: white;
+  text-align: center;
+}
+.modal-text {
+	position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.close {
+  position: relative;
+	top: 55%;
+	margin-right: 10px;
+	float: right;
+}
