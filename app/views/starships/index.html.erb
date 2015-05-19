@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Starships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @starships.each do |starship| %>
+      <tr>
+        <td><%= starship.name %></td>
+        <td><%= link_to 'Show', starship %></td>
+        <td><%= link_to 'Edit', edit_starship_path(starship) %></td>
+        <td><%= link_to 'Destroy', starship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Starship', new_starship_path %>
