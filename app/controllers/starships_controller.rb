@@ -15,6 +15,7 @@ class StarshipsController < ApplicationController
   # GET /starships/new
   def new
     @starship = Starship.new
+    3.times { @starship.crew_members.build}
   end
 
   # GET /starships/1/edit
@@ -69,6 +70,7 @@ class StarshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def starship_params
-      params.require(:starship).permit(:name)
+      params.require(:starship).permit(:name,
+      crew_members_attributes: [:starship_id, :name, :division])
     end
 end

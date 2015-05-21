@@ -15,6 +15,17 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+   Crew Members:
+    <ul>
+      <%= f.fields_for :crew_members do |cm| %>
+       <li>
+         <%= cm.label :name %>
+         <%= cm.text_field :name %>
+         <%= cm.label :division %>
+         <%= cm.select(:division, ["Command", "Engineering", "Science"]) %>
+       </li>
+      <% end %>
+    </ul>
   <div class="actions">
     <%= f.submit %>
   </div>
