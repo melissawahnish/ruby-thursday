@@ -29,6 +29,7 @@ class StarshipsController < ApplicationController
 
     respond_to do |format|
       if @starship.save
+        StarshipMailer.starship_created_email(@starship).deliver_now
         format.html { redirect_to @starship, notice: 'Starship was successfully created.' }
         format.json { render :show, status: :created, location: @starship }
       else
@@ -62,6 +63,10 @@ class StarshipsController < ApplicationController
     end
   end
 
+  def create_your_own_starship
+    redirect_to new_starship_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_starship
@@ -70,7 +75,7 @@ class StarshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def starship_params
-      params.require(:starship).permit(:name,
+      params.require(:starship).permit(:name,:email,
       crew_members_attributes: [:starship_id, :name, :division])
     end
 end
