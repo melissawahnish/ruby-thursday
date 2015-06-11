@@ -15,11 +15,7 @@ feature "Admin" do
 
   #define methods from scenario
   def admin_is_signed_in
-    visit root_path
-    click_link "Admin Sign in"
-    fill_in "admin[email]", with: admin.email
-    fill_in "admin[password]", with: admin.password
-    click_button "Log in"
+    login_admin(admin.email, admin.password)
   end
 
   def admin_views_all_hackers

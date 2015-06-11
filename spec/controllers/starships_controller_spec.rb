@@ -24,11 +24,11 @@ RSpec.describe StarshipsController, type: :controller do
   # Starship. As you add validations to Starship, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.build(:starship).attributes
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    FactoryGirl.build(:starship, name: nil).attributes
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,16 @@ RSpec.describe StarshipsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "Renegade" }
       }
 
       it "updates the requested starship" do
         starship = Starship.create! valid_attributes
         put :update, {:id => starship.to_param, :starship => new_attributes}, valid_session
         starship.reload
-        skip("Add assertions for updated state")
+         new_attributes.each_pair do |key, value|
+          expect(starship[key]).to eq(value)
+        end
       end
 
       it "assigns the requested starship as @starship" do
@@ -154,6 +156,13 @@ RSpec.describe StarshipsController, type: :controller do
       delete :destroy, {:id => starship.to_param}, valid_session
       expect(response).to redirect_to(starships_url)
     end
+  end
+
+  describe 'GET #create_your_own_starship' do
+    before { get :create_your_own_starship }
+
+    it { should redirect_to(new_starship_path) }
+    it { should redirect_to(action: :new) }
   end
 
 end
