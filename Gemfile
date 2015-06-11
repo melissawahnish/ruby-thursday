@@ -36,6 +36,7 @@ gem 'devise'
 
 group :development, :test do
   gem 'better_errors'
+  gem 'capybara-email'
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
