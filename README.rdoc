@@ -1,28 +1,9 @@
-== README
+Welcome to Ruby Thursday!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo is where I save code featured in my  tutorials.  Check out the videos here: http://rubythursday.com
 
-Things you may want to cover:
+Current Ruby version -- 2.2.1
 
-* Ruby version
+Current Rails version -- 4.2.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Feel free to contact me with any questions at melissa@rubythursday.com
