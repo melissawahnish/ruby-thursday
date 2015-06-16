@@ -29,7 +29,9 @@ class StarshipsController < ApplicationController
 
     respond_to do |format|
       if @starship.save
-        StarshipMailer.starship_created_email(@starship).deliver_now
+        if @starship.email.present?
+         StarshipMailer.starship_created_email(@starship).deliver_now
+        end
         format.html { redirect_to @starship, notice: 'Starship was successfully created.' }
         format.json { render :show, status: :created, location: @starship }
       else
