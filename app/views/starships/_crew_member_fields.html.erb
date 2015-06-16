@@ -3,4 +3,5 @@
   <%= f.text_field :name, class: "crew-name" %>
   <%= f.label :division %>
   <%= f.select(:division, ["Command", "Engineering", "Science"], {}, class:  "crew-division") %>
+  <%= link_to_remove_association("Remove Crew Member", f, { wrapper_class: 'crew-members' }) %>
 </div>
