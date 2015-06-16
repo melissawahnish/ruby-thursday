@@ -16,16 +16,14 @@
     <%= f.text_field :name %>
   </div>
    Crew Members:
-    <ul>
-      <%= f.fields_for :crew_members do |cm| %>
-       <li>
-         <%= cm.label :name %>
-         <%= cm.text_field :name %>
-         <%= cm.label :division %>
-         <%= cm.select(:division, ["Command", "Engineering", "Science"]) %>
-       </li>
+    <div>
+      <%= f.fields_for :crew_members do |crew_members| %>
+        <%= render 'crew_member_fields', f: crew_members %>
       <% end %>
-    </ul>
+      <div class="add-more-crew">
+        <%= link_to_add_association 'Add Another Crew Member', f, :crew_members %>
+      </div>
+    </div>
   Enter your email address to receive awesome stuff! 
   <div class="field">
     <%= f.label :email %><br>

@@ -1,0 +1,6 @@
+<div class="crew-members">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "crew-name" %>
+  <%= f.label :division %>
+  <%= f.select(:division, ["Command", "Engineering", "Science"], {}, class:  "crew-division") %>
+</div>
