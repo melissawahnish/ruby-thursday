@@ -6,6 +6,12 @@ feature "Starship with Crew Members" do
     Given "visitor can view new starship form"
     When "visitor enters information for starship and crew members"
     Then "visitor can see starship listing"
+  end
+
+  scenario "visitor can create starship with crew members" do
+    Given "visitor can view new starship form"
+    When "visitor enters information for starship and crew members"
+    Then "visitor can see starship listing"
     Then "visitor receives starship email"
   end
   #define methods from scenario
