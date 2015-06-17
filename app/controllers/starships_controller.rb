@@ -78,6 +78,7 @@ class StarshipsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def starship_params
       params.require(:starship).permit(:name,:email,
-      crew_members_attributes: [:starship_id, :name, :division])
+      crew_members_attributes: [:starship_id, :name,
+     :division, :id, :_destroy])
     end
 end
