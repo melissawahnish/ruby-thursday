@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :starship do
-    name "MyString"
+    name "Enterprise"
   end
 
 end
