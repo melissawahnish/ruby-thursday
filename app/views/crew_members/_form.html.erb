@@ -25,8 +25,16 @@
     <%= f.fields_for :starship do |starship| %>
       <%= starship.label :name %>
       <%= starship.text_field :name %>
+      And Create a Hologram Program for the New Starship
+      <div>
+        <%= starship.fields_for :holodeck_programs do |hp| %>
+          <%= hp.label :title %>
+          <%= hp.text_field :title %>
+          <% end %>  
+      </div>
     <% end %>
   </div>
+
   <div class="actions">
     <%= f.submit "Create Crew Member" %>
   </div>
