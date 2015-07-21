@@ -86,4 +86,7 @@ Rails.application.configure do
     password:             ENV["EMAILPASSWORD"],
     authentication:       'plain',
     enable_starttls_auto: true  }
+
+  config.middleware.insert_after(::Rack::Runtime, "::Rack::Auth::Basic", "Staging") do |u, p|
+    [u, p] == [ENV["STAGING_USERNAME"], ENV["STAGING_PASSWORD"]]
 end

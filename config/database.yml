@@ -20,6 +20,14 @@ test:
   <<: *default
   database: db/ruby_thursday_test
 
+staging:
+  <<: *default
+  database: ruby_thursday_staging  
+  username: deploy
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+
 production:
   <<: *default
-  database: db/ruby_thursday_production
+  database: ruby_thursday_production
+  username: deploy
+  password: <%= ENV["DATABASE_PASSWORD"] %>
