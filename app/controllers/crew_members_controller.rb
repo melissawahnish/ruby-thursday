@@ -1,10 +1,11 @@
 class CrewMembersController < ApplicationController
 
  # GET /crew_members/new
- def new
-   @crew_member = CrewMember.new
-   @crew_member.build_starship
- end
+  def new
+    @crew_member = CrewMember.new
+    @starship = @crew_member.build_starship
+    @holodeck_programs = @starship.holodeck_programs.build
+  end
 
  # POST /crew_members
  # POST /crew_members.json
@@ -28,6 +29,7 @@ class CrewMembersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def crew_member_params
       params.require(:crew_member).permit(:name,:division, :starship_id,
-      starship_attributes: [:name, :id])
+      starship_attributes: [:name, :id, holodeck_programs_attributes:
+      [:title, :starship_id, :crew_member_id]])
     end
 end

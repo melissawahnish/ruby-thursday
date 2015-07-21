@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div>
   <strong>Name:</strong>
-  <%= @starship.name %>
+  <%= @starship.name %><br>
   <strong>Crew Members:</strong>
-	<% @starship.crew_members.each do |crew_member| %>
-	  <%= crew_member.name %>
-	<% end %>
-</p>
+  <% @starship.crew_members.each do |crew_member| %>
+    <%= crew_member.name %>
+    <p>Crew Member Holodeck Programs:</p>
+    <% crew_member.holodeck_programs.each do |hp| %>
+      <p id="cm-hp"><%= hp.title %></p>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <strong>Starship Holodeck Programs:</strong>
+  <% @starship.holodeck_programs.each do |hp| %>
+    <p id="hp"><%= hp.title %></p>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_starship_path(@starship) %> |
 <%= link_to 'Back', starships_path %>

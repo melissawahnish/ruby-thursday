@@ -64,7 +64,7 @@ feature "New Crew Member" do
 
   def fill_in_crew_member_info
     fill_in("crew_member[name]", with: "Reginald Barclay")
-    select("Engineering", from: "crew_member[division]")
+      
   end
 
   def fill_in_starship_info
