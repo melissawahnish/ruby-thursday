@@ -87,7 +87,8 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true  }
 
-  config.middleware.insert_after(::Rack::Runtime, "::Rack::Auth::Basic", "Staging") do |u, p|
-    [u, p] == [ENV["STAGING_USERNAME"], ENV["STAGING_PASSWORD"]]
+  config.middleware.insert_before(::Rack::Runtime, "::Rack::Auth::Basic", "Staging") do |u, p|
+    #[u, p] == [ ENV["STAGING_USERNAME"], ENV["STAGING_PASSWORD"]]
+    [u, p] == [ "areyoualive", "yes6yes"]
   end  
 end
