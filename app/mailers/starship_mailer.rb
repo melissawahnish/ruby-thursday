@@ -1,5 +1,5 @@
 class StarshipMailer < ApplicationMailer
-	default from: 'melissa@rubythursday.com'
+	default from: ENV["EMAILUSERNAME"]
 
   def starship_created_email(starship)
     @starship = starship
