@@ -79,12 +79,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'rubysnack.com',
+    address:              'smtp.sendgrid.net',
+    domain:               'rubythursday.com',
     user_name:            ENV["EMAILUSERNAME"],
     password:             ENV["EMAILPASSWORD"],
-    authentication:       'plain',
+    port:                 587,
+    authentication:       :plain,
     enable_starttls_auto: true  }
 
   config.middleware.insert_before(::Rack::Runtime, "::Rack::Auth::Basic", "Staging") do |u, p|
