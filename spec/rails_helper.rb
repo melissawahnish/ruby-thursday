@@ -6,7 +6,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/webkit/matchers'
 require 'simple_bdd'
-require "support/helpers"
+require 'support/helpers'
 require 'capybara/email/rspec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
