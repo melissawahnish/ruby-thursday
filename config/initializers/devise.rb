@@ -8,8 +8,8 @@ Devise.setup do |config|
   #config.secret_key = RubyThursday::Application.config.secret_key_base 
   config.secret_key = "8ede246bb28adf3663189d0aeb73d5fe7b96f969baf3a13aaf5634f5a8a6b3b8452c33e7af31674bdb93b816c5acfac474405be8d9f0d8cf7ac253d7b50033ac" if Rails.env.staging?
   #config.secret_key = ENV['DEVISE_SECRET_KEY'] 
-  config.secret_key = ENV['DEVISE_SECRET_KEY_PRODUCTION'] if Rails.env.production?
-  
+  #config.secret_key = ENV['DEVISE_SECRET_KEY_PRODUCTION'] if Rails.env.production?
+  config.secret_key = "bae75715d62b99362d293e9a41e3111de76710714313610f9ce955feb8c16320eb733ed5961eeb90ff144db99c05d541632e6b1e686e91701c4afecd9145635f" if Rails.env.production?
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
