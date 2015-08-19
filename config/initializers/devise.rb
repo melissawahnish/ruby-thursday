@@ -5,7 +5,7 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'd05ad1a1622d3b0491d8a0ae88fa3f80f2c9654f80e6a1e39f4fa68b2fa7684e12316737631269d6416860baabe4e350bcd5b5baf292f33b2bd1dda71f75a767'
-  config.secret_key = RubyThursday::Application.config.staging.secret_key_base if Rails.env.staging?
+  config.secret_key = Application.config.secret_key_base 
   #config.secret_key = "c7b66a4ffd40e6ff4e0550d2a6d064179be2b2de40e920efe9c0defd1df1a324ba4c2b0ecfab752db7b50d7e8a5508f208e4d43bc8e3151e14f8f7dd459e66d5"
   #config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.staging?
   #config.secret_key = ENV['DEVISE_SECRET_KEY_PRODUCTION'] if Rails.env.production?
