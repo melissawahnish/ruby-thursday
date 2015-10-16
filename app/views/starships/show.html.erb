@@ -10,6 +10,9 @@
     <% crew_member.holodeck_programs.each do |hp| %>
       <p id="cm-hp"><%= hp.title %></p>
     <% end %>
+    <div class="froala-view">
+      <%= simple_format(crew_member.bio, {}, sanitize: false) %>
+    </div>  
   <% end %>
 </div>
 <div>

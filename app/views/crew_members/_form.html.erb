@@ -15,6 +15,9 @@
     <%= f.text_field :name %>
     <%= f.label :division %>
     <%= f.select(:division, ["Command", "Engineering", "Science"])%>
+    </br>
+    <%= f.label :bio %>
+    <%= f.text_area :bio, id: "wysiwyg" %>
   </div>
   Select a Starship
   <div>
@@ -39,3 +42,26 @@
     <%= f.submit "Create Crew Member" %>
   </div>
 <% end %>
+<script>
+$('#wysiwyg').editable({
+    inlineMode: false,
+    minHeight: '200px',
+    buttons: ['bold', 'italic', 'underline','formatBlock','align', 'insertUnorderedList', 'insertOrderedList', 'outdent', 'indent', 'createLink', 'html', 'insertImage'],
+    imageUploadToS3: {
+      bucket: '<%= @hash[:bucket] %>',
+      region: 's3', // Change the region if it is different
+      keyStart: '<%= @hash[:key_start] %>',
+      callback: function (url, key) {
+        console.log (url);
+        console.log (key);
+      },
+      params: {
+        acl: '<%= @hash[:acl] %>', 
+        AWSAccessKeyId: '<%= @hash[:access_key] %>', 
+        policy: '<%= @hash[:policy] %>', 
+        signature: '<%= @hash[:signature] %>',
+      }
+    }
+
+  })
+</script>

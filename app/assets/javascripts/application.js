@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cocoon
+//= require froala_editor.min.js
+//= require plugins/file_upload.min.js
 //= require_tree .
