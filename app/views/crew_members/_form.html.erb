@@ -43,10 +43,9 @@
   </div>
 <% end %>
 <script>
-$('#wysiwyg').editable({
-    inlineMode: false,
-    minHeight: '200px',
-    buttons: ['bold', 'italic', 'underline','formatBlock','align', 'insertUnorderedList', 'insertOrderedList', 'outdent', 'indent', 'createLink', 'html', 'insertImage'],
+  $('#wysiwyg').froalaEditor({
+    heightMin: '200px',
+    toolbarButtons: ['bold', 'italic', 'underline','paragraphFormat','align', 'formatOL', 'formatUL', 'outdent', 'indent', 'insertLink', 'html', 'insertImage'],
     imageUploadToS3: {
       bucket: '<%= @hash[:bucket] %>',
       region: 's3', // Change the region if it is different

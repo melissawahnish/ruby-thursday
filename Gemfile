@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'cocoon' #for nested forms
-gem "wysiwyg-rails"
+# gem "wysiwyg-rails"
 gem "font-awesome-rails"
 gem "figaro" 
 
