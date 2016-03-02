@@ -4,7 +4,8 @@ class StarshipsController < ApplicationController
   # GET /starships
   # GET /starships.json
   def index
-    @starships = Starship.all
+    @starships = Starship.includes(:crew_members).all
+    @starships_with_robin_hood_hp = Starship.joins(:holodeck_programs).where(holodeck_programs: {title: "Robin Hood"}).all
   end
 
   # GET /starships/1
