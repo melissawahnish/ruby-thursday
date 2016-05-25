@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Hacker, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "after creation" do 
+	  it "sends a confirmation email" do
+	    hacker = FactoryGirl.build :hacker
+
+	    expect { hacker.save }.to change(
+	      Devise.mailer.deliveries, :count
+	    ).by(1)
+	  end  
+	end
 end
