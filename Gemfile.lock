@@ -100,7 +100,7 @@ GEM
     ffaker (2.2.0)
     figaro (1.1.1)
       thor (~> 0.14)
-    font-awesome-rails (4.5.0.1)
+    font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
