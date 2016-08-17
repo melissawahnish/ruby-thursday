@@ -1,4 +1,4 @@
-class CrewMember < ActiveRecord::Base
+class CrewMember < ApplicationRecord
 	belongs_to :starship
 	accepts_nested_attributes_for :starship,
     reject_if: lambda {|attributes| attributes["name"].blank?}

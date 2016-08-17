@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Devise::Mailer do
 	it "sends a confirmation email to correct email with custom text" do
-    hacker = FactoryGirl.create(:hacker)
+    hacker = FactoryGirl.create(:hacker, confirmed_at: nil)
 
     confirmation_email = Devise.mailer.deliveries.last
     
