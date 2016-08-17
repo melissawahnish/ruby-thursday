@@ -210,7 +210,7 @@ GEM
       activesupport (>= 4.0.0)
     simple_bdd (0.1.0)
     slop (3.6.0)
-    spring (1.6.4)
+    spring (1.7.2)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
