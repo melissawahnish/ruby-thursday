@@ -1,9 +1,9 @@
 Welcome to Ruby Thursday!
 
-This repo is where I save code featured in my  tutorials.  Check out the videos here: http://rubythursday.com
+This repo is where I save code featured in my tutorials.  Check out the videos here: http://rubythursday.com
 
-Current Ruby version -- 2.2.1
+Current Ruby version -- 2.2.2
 
-Current Rails version -- 4.2.1
+Current Rails version -- 5.0.0.1
 
 Feel free to contact me with any questions at melissa@rubythursday.com
