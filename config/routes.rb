@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  
   resources :starships
-  resources :crew_members, only: [:new, :create]
+  resources :crew_members, only: [:new, :create] do
+    resources :evaluations
+  end
+  
   get 'admin/hacker_list'
   get 'starships/create_your_own_starship'
 

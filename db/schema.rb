@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525190840) do
+ActiveRecord::Schema.define(version: 20160915173558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +28,9 @@ ActiveRecord::Schema.define(version: 20160525190840) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "crew_members", force: :cascade do |t|
     t.string   "name"
@@ -41,6 +39,16 @@ ActiveRecord::Schema.define(version: 20160525190840) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "bio"
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.date     "star_date"
+    t.text     "assessment"
+    t.integer  "rating"
+    t.integer  "crew_member_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["crew_member_id"], name: "index_evaluations_on_crew_member_id", using: :btree
   end
 
   create_table "hackers", force: :cascade do |t|
@@ -59,11 +67,10 @@ ActiveRecord::Schema.define(version: 20160525190840) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_hackers_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_hackers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_hackers_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "hackers", ["confirmation_token"], name: "index_hackers_on_confirmation_token", unique: true, using: :btree
-  add_index "hackers", ["email"], name: "index_hackers_on_email", unique: true, using: :btree
-  add_index "hackers", ["reset_password_token"], name: "index_hackers_on_reset_password_token", unique: true, using: :btree
 
   create_table "holodeck_programs", force: :cascade do |t|
     t.string   "title"
@@ -80,4 +87,5 @@ ActiveRecord::Schema.define(version: 20160525190840) do
     t.string   "email"
   end
 
+  add_foreign_key "evaluations", "crew_members"
 end

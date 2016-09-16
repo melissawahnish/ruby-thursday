@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Star date:</strong>
+  <%= @evaluation.star_date %>
+</p>
+
+<p>
+  <strong>Assessment:</strong>
+  <%= @evaluation.assessment %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @evaluation.rating %>
+</p>
+
+<p>
+  <strong>Crew member:</strong>
+  <%= @evaluation.crew_member %>
+</p>
+
+<%= link_to 'Edit', edit_crew_member_evaluation_path(@crew_member, @evaluation) %> |
+<%= link_to 'Back', crew_member_evaluations_path(@crew_member) %>

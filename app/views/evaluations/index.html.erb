@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Evaluations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Star date</th>
+      <th>Date</th>
+      <th>Assessment</th>
+      <th>Rating</th>
+      <th>Crew member</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evaluations.each do |evaluation| %>
+      <tr>
+        <td><%= evaluation.star_date %></td>
+        <td><%= evaluation.date %></td>
+        <td><%= evaluation.assessment %></td>
+        <td><%= evaluation.rating %></td>
+        <td><%= link_to 'Show', crew_member_evaluation(@crew_member, evaluation) %></td>
+        <td><%= link_to 'Edit', edit_crew_member_evaluation_path(@crew_member, evaluation) %></td>
+        <td><%= link_to 'Destroy', [@crew_member, evaluation], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evaluation', new_evaluation_path %>
