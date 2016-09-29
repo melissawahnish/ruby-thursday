@@ -9,13 +9,15 @@ feature "Create crew member evaluation" do
     expect(page).to have_content("New Evaluation")
 
     fill_in "evaluation[assessment]", with: FFaker::Lorem.paragraph(2)
+    select "Acceptable"
     click_button "Create Evaluation"
 
     expect(page).to have_content("Evaluation was successfully created.") 
     expect(Evaluation.count).to eq 1
     evaluation = Evaluation.last
     expect(evaluation).to have_attributes(
-      crew_member_id: crew_member.id
+      crew_member_id: crew_member.id,
+      rating: "acceptable"
     )
   end
 end

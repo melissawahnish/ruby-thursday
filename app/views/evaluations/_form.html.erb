@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :rating %>
-    <%= f.text_field :rating%>
+    <%= f.select :rating, options_for_select([["Poor", "poor"], ["Acceptable", "acceptable"], ["Excellent", "excellent"]]) %>
   </div>
 
   <div class="actions">
