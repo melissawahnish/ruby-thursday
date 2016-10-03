@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe AdminController, type: :controller do
+RSpec.describe Admin::HackersController, type: :controller do
 
-  describe "GET #hacker_list" do
+  describe "GET #index" do
     it "returns http success" do
       sign_in FactoryGirl.create(:admin)
-      get :hacker_list
+      get :index
       expect(response).to have_http_status(:success)
     end
   end
