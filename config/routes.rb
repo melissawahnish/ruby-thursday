@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
   
   resources :starships
+
   resources :crew_members, only: [:new, :create] do
     resources :evaluations
   end
   
-  get 'admin/hacker_list'
+  resources :crew_members, only: [:new, :create]
+
+  # You can use this one, which allows you to add more routes into the admin namespace.
+  namespace :admin do
+    resources :hackers, only: [:index]
+  end
+
+  # Or use this
+  # get 'admin/hackers', to: 'admin/hackers#index'
+
   get 'starships/create_your_own_starship'
 
   devise_for :admins
