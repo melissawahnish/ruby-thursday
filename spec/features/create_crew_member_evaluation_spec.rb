@@ -8,6 +8,10 @@ feature "Create crew member evaluation" do
     visit new_crew_member_evaluation_path(crew_member)
     expect(page).to have_content("New Evaluation")
 
+    execute_script("
+      $('#datepicker').datepicker(
+          'setDate', new Date((new Date()).valueOf() - 1000*3600*24));"
+    )
     fill_in "evaluation[assessment]", with: FFaker::Lorem.paragraph(2)
     select "Acceptable"
     click_button "Create Evaluation"
@@ -17,7 +21,8 @@ feature "Create crew member evaluation" do
     evaluation = Evaluation.last
     expect(evaluation).to have_attributes(
       crew_member_id: crew_member.id,
-      rating: "acceptable"
+      rating: "acceptable",
+      star_date: Date.yesterday
     )
   end
 end

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require font-awesome
+ *= require jquery-ui/datepicker
  *= require_tree .
  *= require_self
  */

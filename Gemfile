@@ -29,6 +29,7 @@ gem "wysiwyg-rails"
 gem "font-awesome-rails"
 gem "figaro" 
 gem 'rails-controller-testing' #rails 5 upgrade
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
