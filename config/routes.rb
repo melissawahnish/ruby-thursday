@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   resources :starships
 
   resources :crew_members, only: [:new, :create] do
-    resources :evaluations
+    resources :evaluations do
+      collection do
+        delete 'destroy_multiple'
+      end
+    end
   end
   
   resources :crew_members, only: [:new, :create]

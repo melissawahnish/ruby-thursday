@@ -50,6 +50,15 @@ class EvaluationsController < ApplicationController
     end
   end
 
+  def destroy_multiple
+    Evaluation.where(id: params[:evaluations_ids]).destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to crew_member_evaluations_path(@crew_member), notice: "Evaluations successfully deleted." }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
     def set_evaluation
