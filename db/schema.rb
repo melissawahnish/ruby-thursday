@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915173558) do
+ActiveRecord::Schema.define(version: 20161026182541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +46,10 @@ ActiveRecord::Schema.define(version: 20160915173558) do
     t.text     "assessment"
     t.integer  "rating"
     t.integer  "crew_member_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "time_zone"
+    t.datetime "evaluation_time"
     t.index ["crew_member_id"], name: "index_evaluations_on_crew_member_id", using: :btree
   end
 

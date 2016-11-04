@@ -21,6 +21,7 @@ class EvaluationsController < ApplicationController
 
     respond_to do |format|
       if @evaluation.save
+        add_date_to_time_and_convert_to_utc
         format.html { redirect_to crew_member_evaluation_path(@crew_member, @evaluation), notice: 'Evaluation was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation }
       else
@@ -70,6 +71,17 @@ class EvaluationsController < ApplicationController
     end
 
     def evaluation_params
-      params.require(:evaluation).permit(:star_date, :assessment, :rating, :crew_member_id)
+      params.require(:evaluation).permit(
+        :star_date, :assessment, :rating, :crew_member_id,
+        :time_zone, :evaluation_time
+      )
     end
+
+    def add_date_to_time_and_convert_to_utc
+      timezone = @evaluation.time_zone
+      evaluation_time_with_correct_date = params[:evaluation][:star_date] + " " + params[:evaluation][:evaluation_time]
+      evaluation_time_as_time = evaluation_time_with_correct_date.in_time_zone(timezone)
+      @evaluation.update(evaluation_time: evaluation_time_as_time)
+    end
+
 end
