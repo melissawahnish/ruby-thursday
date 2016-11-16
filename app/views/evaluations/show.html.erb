@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Evaluation Time:</strong>
+	<%= @evaluation.evaluation_time.in_time_zone(@evaluation.time_zone).strftime("%l:%M %p") %>
+</p>
+
+<p>
   <strong>Assessment:</strong>
   <%= @evaluation.assessment %>
 </p>
