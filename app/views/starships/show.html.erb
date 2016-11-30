@@ -3,6 +3,13 @@
 <div>
   <strong>Name:</strong>
   <%= @starship.name %><br>
+  <strong>Recent Evaluations:</strong>
+  <% @recent_evaluations.each do |eval| %>
+    <%= eval.star_date %>
+    <%= eval.crew_member.name %>
+    <%= link_to "View evaluation", crew_member_evaluation_path(eval.crew_member, eval) %>
+  <% end %>
+  <br>
   <strong>Crew Members:</strong>
   <% @starship.crew_members.each do |crew_member| %>
     <%= crew_member.name %>
