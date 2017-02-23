@@ -19,8 +19,31 @@ feature "New Crew Member" do
     When "visitor enters all info"
     Then "visitor views new starship with holodeck program"
   end
+
+  scenario "visitor creates crew member then creates starship on next screen" do
+    Given "visitor views new crew member only form"
+    When "visitor creates crew member then creates starship"
+    Then "visitor views new starship"
+  end
   
   let!(:starship) { FactoryGirl.create(:starship) }
+
+  def visitor_views_new_crew_member_only_form
+    visit new_crew_member_first_path
+    expect(page).to have_content("New Crew Member")
+  end
+
+  def visitor_creates_crew_member_then_creates_starship
+    fill_in_crew_member_info
+    click_button "Create Crew Member"
+    expect(page).to have_content "Crew Member created!  Now select or create a starship."
+    expect(CrewMember.count).to eq 1
+
+    fill_in_starship_info
+    click_button "Update Crew Member"
+    expect(page).to have_content "Crew Member updated."
+    expect(Starship.count).to eq 2
+  end
 
   def visitor_views_new_crew_member_form
     visit starships_path
@@ -35,6 +58,7 @@ feature "New Crew Member" do
   end
 
   def visitor_views_updated_starship
+    expect(page).to have_content("Enterprise")
     expect(page).to have_content("Reginald Barclay")
   end
 
@@ -64,7 +88,7 @@ feature "New Crew Member" do
 
   def fill_in_crew_member_info
     fill_in("crew_member[name]", with: "Reginald Barclay")
-      
+    select "Engineering"  
   end
 
   def fill_in_starship_info

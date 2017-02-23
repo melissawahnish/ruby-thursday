@@ -1,0 +1,24 @@
+<h1>New Crew Member</h1>
+
+<%= form_for(@crew_member, url: {controller: "crew_member_first", action: "create"}, method: "post") do |f| %>
+  <% if @crew_member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crew_member.errors.count, "error") %> 
+        prohibited this crew member from being saved:</h2>
+      <ul>
+        <% @crew_member.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :division %>
+    <%= f.select(:division, ["Command", "Engineering", "Science"])%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create Crew Member" %>
+  </div>
+<% end %>

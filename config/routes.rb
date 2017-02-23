@@ -3,14 +3,15 @@ Rails.application.routes.draw do
   resources :starships
 
   resources :crew_members, only: [:new, :create] do
+    get :select_starship, on: :member
     resources :evaluations do
       collection do
         delete 'destroy_multiple'
       end
     end
   end
-  
-  resources :crew_members, only: [:new, :create]
+
+  resources :crew_member_first, only: [:new, :edit, :create, :update]
 
   # You can use this one, which allows you to add more routes into the admin namespace.
   namespace :admin do
