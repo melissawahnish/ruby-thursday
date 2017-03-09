@@ -1,5 +1,6 @@
 class Evaluation < ApplicationRecord
   belongs_to :crew_member
+  delegate :name, to: :crew_member, prefix: true, allow_nil: true
   enum rating: [:poor, :acceptable, :excellent]
 
   scope :by_starship, ->(starship) { joins(:crew_member).

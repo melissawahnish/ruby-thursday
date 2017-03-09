@@ -23,7 +23,8 @@ feature "View recent evaluations" do
 	scenario "by visiting the starship page" do
 		visit starship_path(starship)
 
-		expect(page).to have_content @recent_evaluation.star_date
+		expect(page).to have_content @recent_evaluation.star_date.strftime("%b %d, %Y")
+		expect(page).to have_content @crew_member_1.name
 		expect(page).to have_link("View evaluation", 
 			href: crew_member_evaluation_path(@crew_member_1, @recent_evaluation)
 		)

@@ -5,8 +5,8 @@
   <%= @starship.name %><br>
   <strong>Recent Evaluations:</strong>
   <% @recent_evaluations.each do |eval| %>
-    <%= eval.star_date %>
-    <%= eval.crew_member.name %>
+    <%= eval.star_date.strftime("%b %d, %Y") %>
+    <%= eval.crew_member_name %>
     <%= link_to "View evaluation", crew_member_evaluation_path(eval.crew_member, eval) %>
   <% end %>
   <br>
