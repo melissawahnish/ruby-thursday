@@ -59,5 +59,6 @@ group :development, :test do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-passenger'
   gem 'capistrano-figaro-yml', '~> 1.0.2'
+  gem "fantaskspec"
 end 
 

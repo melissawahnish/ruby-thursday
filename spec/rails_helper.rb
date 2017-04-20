@@ -9,6 +9,8 @@ require 'simple_bdd'
 require 'support/helpers'
 require 'capybara/email/rspec'
 
+Rails.application.load_tasks
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -31,6 +33,8 @@ require 'capybara/email/rspec'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  config.infer_rake_task_specs_from_file_location!
   
   Capybara.javascript_driver = :webkit
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
