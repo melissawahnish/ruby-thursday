@@ -18,4 +18,6 @@
 //= require file.min.js
 //= require image.min.js
 //= require jquery-ui/datepicker
+//= require helpers
+//= require home
 //= require_tree .
