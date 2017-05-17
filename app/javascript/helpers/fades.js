@@ -1,10 +1,9 @@
-function fadeIn(el, ms) {
-  ms = ms || 400;
+export const fadeIn = (el, ms = 400) => {
   el.style.opacity = 0;
   el.style.display = 'block';
 
-  var last = +new Date();
-  var tick = function() {
+  let last = +new Date();
+  const tick = () => {
     el.style.opacity = +el.style.opacity + (new Date() - last) / ms;
     last = +new Date();
 
@@ -16,12 +15,11 @@ function fadeIn(el, ms) {
   tick();
 }
 
-function fadeOut(el, ms) {
-  ms = ms || 400;
+export const fadeOut = (el, ms = 400) => {
   el.style.opacity = 1;
 
-  var last = +new Date();
-  var tick = function() {
+  let last = +new Date();
+  const tick = () => {
     el.style.opacity = +el.style.opacity - (new Date() - last) / ms;
     last = +new Date();
 
@@ -34,4 +32,3 @@ function fadeOut(el, ms) {
 
   tick();
 }
-

@@ -1,10 +1,12 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'bundle' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+import { fadeIn, fadeOut } from '../helpers/fades';
 
-console.log('Hello World from Webpacker')
+$(document).ready(function() {
+  var modalBackground = document.getElementById('modal-background')
+
+  $('#modal-link').on('click', function() {
+    fadeIn(modalBackground, 333);
+  });
+  $('#modal-close').on('click', function() {
+    fadeOut(modalBackground, 333);
+  });
+});
