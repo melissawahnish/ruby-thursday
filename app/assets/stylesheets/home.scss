@@ -34,4 +34,14 @@
 	top: 55%;
 	margin-right: 10px;
 	float: right;
+  text-decoration: underline;
+  transition: all 0.25s;
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+.btn-kirk {
+  float: right;
+  margin: 5px;
 }

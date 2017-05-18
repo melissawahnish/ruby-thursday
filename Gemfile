@@ -9,8 +9,6 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
@@ -27,9 +25,10 @@ gem 'devise'
 gem 'cocoon' #for nested forms
 gem "wysiwyg-rails"
 gem "font-awesome-rails"
-gem "figaro" 
+gem "figaro"
 gem 'rails-controller-testing' #rails 5 upgrade
 gem 'jquery-ui-rails'
+gem 'webpacker', github: 'rails/webpacker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -54,10 +53,10 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'simple_bdd'
   gem 'shoulda-matchers'
-  gem 'spring' 
+  gem 'spring'
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-passenger'
   gem 'capistrano-figaro-yml', '~> 1.0.2'
-end 
+end
 

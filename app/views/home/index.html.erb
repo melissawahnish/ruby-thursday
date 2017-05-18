@@ -1,24 +1,7 @@
 <h1>Home#index</h1>
 <p> Welcome to RubyThursday </p>
-<p><button id="modal-link">Kirk Quote</button></p>
-<div id="modal-background">
-	<div id="modal-window">
-		<p class="modal-text">Beam me up, Scotty!</p>
-		<a href="#" class="close">Close</a>
-	</div>	
-</div>
 
 <div>
   <%= link_to "View Starships", starships_path %>
 </div>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#modal-link').click(function() {
-      $('#modal-background').fadeIn();
-    });
-    $('.close').click(function() {
-        $('#modal-background').fadeOut();
-    });
-  });
-</script>	

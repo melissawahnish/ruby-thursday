@@ -1,0 +1,8 @@
+<header>
+  <%= link_to('Sign in', new_hacker_session_path) %>
+  <%= link_to('Admin Sign in', new_admin_session_path) %>
+  <% if admin_signed_in? %>
+    <%= link_to('View Hacker List', admin_hackers_path) %>
+  <% end %>
+  <button id="modal-link" class="btn-kirk">Kirk Quote</button>
+</header>
