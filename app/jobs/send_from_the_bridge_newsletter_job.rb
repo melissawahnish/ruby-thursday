@@ -1,7 +1,9 @@
 class SendFromTheBridgeNewsletterJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
-  end
+  def perform(hackers)
+	  hackers.each do |hacker|
+	    FromTheBridgeMailer.send_newsletter(hacker).deliver_later
+	  end
+	end
 end
