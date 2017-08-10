@@ -6,8 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'd05ad1a1622d3b0491d8a0ae88fa3f80f2c9654f80e6a1e39f4fa68b2fa7684e12316737631269d6416860baabe4e350bcd5b5baf292f33b2bd1dda71f75a767'
   # config.secret_key = RubyThursday::Application.config.secret_key_base 
-  config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.staging?
-  config.secret_key = "bae75715d62b99362d293e9a41e3111de76710714313610f9ce955feb8c16320eb733ed5961eeb90ff144db99c05d541632e6b1e686e91701c4afecd9145635f" if Rails.env.production?
+  # config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.staging?
+  # config.secret_key = "bae75715d62b99362d293e9a41e3111de76710714313610f9ce955feb8c16320eb733ed5961eeb90ff144db99c05d541632e6b1e686e91701c4afecd9145635f" if Rails.env.production?
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class

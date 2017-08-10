@@ -20,9 +20,9 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, %w{deploy@45.55.179.11}
-role :web, %w{deploy@45.55.179.11}
-role :db,  %w{deploy@45.55.179.11}, :primary => true
+role :app, %w{deploy@45.55.242.97}
+role :web, %w{deploy@45.55.242.97}
+role :db,  %w{deploy@45.55.242.97}, :primary => true
 set :branch, "production"
 set :rails_env, "production"
 set :deploy_to, "/var/www/ruby_thursday_production"
