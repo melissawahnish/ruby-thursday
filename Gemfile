@@ -29,6 +29,7 @@ gem "figaro"
 gem 'rails-controller-testing' #rails 5 upgrade
 gem 'jquery-ui-rails'
 gem 'webpacker', github: 'rails/webpacker'
+gem 'whenever', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
